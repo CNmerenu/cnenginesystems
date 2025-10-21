@@ -9,51 +9,77 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Cybersecurity Activism Theme - Dynamic Brand Colors
         primary: {
+          50: "#f1f5f9",
+          100: "#e2e8f0",
+          200: "#cbd5e1",
+          300: "#94a3b8",
+          400: "#64748b",
+          500: "#1a2332", // Deep Navy
+          600: "#151d28",
+          700: "#10171e",
+          800: "#0b1014",
+          900: "#060a0a",
+        },
+        secondary: {
+          50: "#f0f4f8",
+          100: "#d9e2ec",
+          200: "#bcccdc",
+          300: "#9fb3c8",
+          400: "#829ab1",
+          500: "#2d4059", // Steel Blue
+          600: "#253649",
+          700: "#1e2c39",
+          800: "#16212a",
+          900: "#0e171a",
+        },
+        accent: {
           50: "#f0f9ff",
           100: "#e0f2fe",
           200: "#bae6fd",
           300: "#7dd3fc",
           400: "#38bdf8",
-          500: "#0ea5e9", // Cyber Blue (primary)
+          500: "#0ea5e9", // Electric Blue
           600: "#0284c7",
           700: "#0369a1",
           800: "#075985",
-          900: "#0c3d66",
+          900: "#0c4a6e",
         },
-        accent: {
-          50: "#fdf2f8",
-          100: "#fce7f3",
-          200: "#fbcfe8",
-          300: "#f8a5d8",
-          400: "#f472b6",
-          500: "#ec4899", // Neon Pink (accent - digital resistance)
-          600: "#db2777",
-          700: "#be185d",
-          800: "#9d174d",
-          900: "#831843",
+        orange: {
+          50: "#fff7ed",
+          100: "#ffedd5",
+          200: "#fed7aa",
+          300: "#fdba74",
+          400: "#fb923c",
+          500: "#f97316", // Energy Orange
+          600: "#ea580c",
+          700: "#c2410c",
+          800: "#9a3412",
+          900: "#7c2d12",
         },
-        dark: {
-          50: "#f9fafb",
-          100: "#f3f4f6",
-          200: "#e5e7eb",
-          300: "#d1d5db",
-          400: "#9ca3af",
-          500: "#6b7280",
-          600: "#4b5563", // Dark Gray (background)
-          700: "#374151",
-          800: "#1f2937",
-          900: "#111827", // Deep Black (dark mode)
+        emerald: {
+          50: "#ecfdf5",
+          100: "#d1fae5",
+          200: "#a7f3d0",
+          300: "#6ee7b7",
+          400: "#34d399",
+          500: "#10b981", // Success Green
+          600: "#059669",
+          700: "#047857",
+          800: "#065f46",
+          900: "#064e3b",
         },
-        success: {
-          500: "#10b981", // Secure Green
-        },
-        warning: {
-          500: "#f59e0b", // Alert Amber
-        },
-        danger: {
-          500: "#ef4444", // Alert Red
+        neutral: {
+          50: "#f8fafc",
+          100: "#f1f5f9",
+          200: "#e2e8f0",
+          300: "#cbd5e1",
+          400: "#94a3b8",
+          500: "#64748b",
+          600: "#475569",
+          700: "#334155",
+          800: "#1e293b",
+          900: "#0f172a",
         },
       },
       backgroundImage: {
@@ -74,6 +100,11 @@ export default {
       animation: {
         blob: "blob 7s infinite",
         blob2: "blob2 10s infinite",
+        "fade-in": "fadeIn 0.6s ease-out forwards",
+        "slide-up": "slideUp 0.6s ease-out forwards",
+        "scale-in": "scaleIn 0.5s ease-out forwards",
+        "bounce-slow": "bounce 2s infinite",
+        "pulse-slow": "pulse 3s infinite",
       },
       keyframes: {
         blob: {
@@ -90,7 +121,7 @@ export default {
             filter: "blur(2px)",
           },
           "100%": {
-            transform: "tranlate(0px, 0px) scale(1)",
+            transform: "translate(0px, 0px) scale(1)",
             filter: "blur(1px)",
           },
         },
@@ -104,8 +135,36 @@ export default {
             filter: "blur(0px)",
           },
           "100%": {
-            transform: "tranlate(0px, 0px) scale(1)",
+            transform: "translate(0px, 0px) scale(1)",
             filter: "blur(1px)",
+          },
+        },
+        fadeIn: {
+          "0%": {
+            opacity: "0",
+          },
+          "100%": {
+            opacity: "1",
+          },
+        },
+        slideUp: {
+          "0%": {
+            opacity: "0",
+            transform: "translateY(30px)",
+          },
+          "100%": {
+            opacity: "1",
+            transform: "translateY(0)",
+          },
+        },
+        scaleIn: {
+          "0%": {
+            opacity: "0",
+            transform: "scale(0.9)",
+          },
+          "100%": {
+            opacity: "1",
+            transform: "scale(1)",
           },
         },
       },
