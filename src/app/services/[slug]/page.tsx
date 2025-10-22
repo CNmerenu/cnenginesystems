@@ -4,6 +4,7 @@ import Image from "next/image";
 import { ArrowLeft, CheckCircle, Phone } from "lucide-react";
 import { services } from "@/lib/data/services";
 import { images } from "@/lib/data/images";
+import { generateMetadata as createMetadata } from "@/lib/metadata";
 
 interface ServicePageProps {
   params: {
@@ -21,15 +22,17 @@ export async function generateMetadata({ params }: ServicePageProps) {
   const service = services.find((s) => s.slug === params.slug);
   
   if (!service) {
-    return {
+    return createMetadata({
       title: "Service Not Found",
-    };
+      noindex: true
+    });
   }
 
-  return {
-    title: `${service.title} - CN Engine Systems Ltd`,
+  return createMetadata({
+    title: service.title,
     description: service.description,
-  };
+    url: `https://cnenginesystems.com/services/${service.slug}`
+  });
 }
 
 export default function ServicePage({ params }: ServicePageProps) {

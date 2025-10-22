@@ -1,10 +1,12 @@
-import type { Metadata } from "next";
 import Link from "next/link";
+import { generateMetadata as createMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
-  title: "Privacy Policy - CN Engine Systems Ltd",
-  description: "Privacy policy for CN Engine Systems Ltd",
-};
+export const metadata = createMetadata({
+  title: "Privacy Policy",
+  description: "Privacy policy for CN Engine Systems Ltd - How we collect, use, and protect your personal information in compliance with Nigerian Data Protection Regulation (NDPR) 2019.",
+  url: "https://cnenginesystems.com/privacy-policy",
+  noindex: true
+});
 
 export default function PrivacyPolicyPage() {
   return (

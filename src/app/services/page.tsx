@@ -1,13 +1,14 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { services } from "@/lib/data/services";
 import { images } from "@/lib/data/images";
+import { generateMetadata as createMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
-  title: "Our Services - CN Engine Systems Ltd | Engineering, Procurement, Installation & Maintenance",
+export const metadata = createMetadata({
+  title: "Our Services - Engineering, Procurement, Installation & Maintenance",
   description: "Comprehensive engineering services including design, equipment procurement, professional installation, and maintenance solutions for industrial and commercial projects in Nigeria.",
-};
+  url: "https://cnenginesystems.com/services"
+});
 
 export default function ServicesPage() {
   return (

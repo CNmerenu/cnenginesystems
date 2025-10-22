@@ -1,9 +1,11 @@
-import type { Metadata } from "next";
+import { generateMetadata as createMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
-  title: "Terms of Service - CN Engine Systems Ltd",
-  description: "Terms of service for CN Engine Systems Ltd",
-};
+export const metadata = createMetadata({
+  title: "Terms of Service",
+  description: "Terms of Service for CN Engine Systems Ltd - Legal terms and conditions governing the use of our engineering, procurement, installation, and maintenance services.",
+  url: "https://cnenginesystems.com/terms-of-service",
+  noindex: true
+});
 
 export default function TermsOfServicePage() {
   return (
