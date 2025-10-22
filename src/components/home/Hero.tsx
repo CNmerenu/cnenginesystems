@@ -1,13 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import {
-  ArrowRight,
-  MessageCircle,
-  Clock,
-  Users,
-  Factory,
-  Cog,
-} from "lucide-react";
+import { ArrowRight, Clock, Users, Factory, Cog } from "lucide-react";
 import { images } from "@/lib/data/images";
 
 export default function Hero() {

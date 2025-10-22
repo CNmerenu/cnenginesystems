@@ -11,7 +11,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "CN Engine Systems Ltd - Engineering Excellence in Nigeria | Procurement, Installation & Maintenance",
+  metadataBase: new URL('https://cnenginesystems.com'),
+  title:
+    "CN Engine Systems Ltd - Engineering Excellence in Nigeria | Procurement, Installation & Maintenance",
   description:
     "Leading engineering services company in Nigeria providing comprehensive solutions in engineering design, equipment procurement, professional installation, and maintenance services for industrial and commercial projects.",
   keywords:
@@ -19,19 +21,13 @@ export const metadata: Metadata = {
   authors: [{ name: "CN Engine Systems Ltd" }],
   openGraph: {
     title: "CN Engine Systems Ltd - Engineering Excellence in Nigeria",
-    description: "Comprehensive engineering, procurement, installation, and maintenance services for industrial and commercial projects across Nigeria.",
+    description:
+      "Comprehensive engineering, procurement, installation, and maintenance services for industrial and commercial projects across Nigeria.",
     type: "website",
     locale: "en_NG",
   },
   icons: {
     icon: "/assets/favicon.svg",
-  },
-  robots: {
-    index: true,
-    follow: true,
-  },
-  verification: {
-    google: "your-google-verification-code",
   },
 };
 

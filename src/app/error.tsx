@@ -13,7 +13,13 @@ export default function Error({
   reset: () => void;
 }) {
   useEffect(() => {
-    console.error(error);
+    // Log error with structured information
+    console.error('Application Error:', {
+      message: error.message,
+      stack: error.stack,
+      digest: error.digest,
+      timestamp: new Date().toISOString(),
+    });
   }, [error]);
 
   return (

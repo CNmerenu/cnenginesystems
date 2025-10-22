@@ -2,6 +2,11 @@ import Link from "next/link";
 import { Search, Home, ArrowLeft } from "lucide-react";
 import Button from "@/components/ui/Button";
 
+const popularLinks = [
+  { href: "/services", label: "Services" },
+  { href: "/contact", label: "Contact" }
+];
+
 export default function NotFound() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-primary-500 to-secondary-500 px-4">
@@ -44,18 +49,15 @@ export default function NotFound() {
         <div className="mt-12 pt-8 border-t border-white/20">
           <h3 className="text-white font-semibold mb-4">Popular Pages</h3>
           <div className="flex flex-wrap justify-center gap-4 text-sm">
-            <Link
-              href="/services"
-              className="text-white/80 hover:text-accent-500 transition-colors"
-            >
-              Services
-            </Link>
-            <Link
-              href="/contact"
-              className="text-white/80 hover:text-accent-500 transition-colors"
-            >
-              Contact
-            </Link>
+            {popularLinks.map(({ href, label }) => (
+              <Link
+                key={href}
+                href={href}
+                className="text-white/80 hover:text-accent-500 transition-colors"
+              >
+                {label}
+              </Link>
+            ))}
           </div>
         </div>
       </div>

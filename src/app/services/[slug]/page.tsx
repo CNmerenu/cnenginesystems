@@ -6,10 +6,40 @@ import { services } from "@/lib/data/services";
 import { images } from "@/lib/data/images";
 import { generateMetadata as createMetadata } from "@/lib/metadata";
 
+const serviceImages = {
+  engineering: images.services.engineering,
+  procurement: images.services.procurement,
+  installation: images.services.installation,
+  maintenance: images.services.maintenance
+};
+
+const serviceContent = {
+  engineering: {
+    overview: "Our engineering services encompass the complete spectrum of technical design and consultation for industrial and commercial projects. From initial concept development to detailed engineering drawings, we provide comprehensive solutions that meet international standards and local regulations.",
+    approach: "We employ a systematic approach to engineering design, beginning with thorough site assessments and feasibility studies. Our team of certified engineers utilizes cutting-edge CAD software and simulation tools to develop optimal solutions that balance performance, cost-effectiveness, and sustainability.",
+    industries: ['Manufacturing', 'Oil & Gas', 'Power Generation', 'Water Treatment', 'Commercial Buildings', 'Industrial Facilities']
+  },
+  procurement: {
+    overview: "Our procurement services leverage extensive supplier networks and industry expertise to source high-quality equipment and materials at competitive prices. We manage the entire procurement lifecycle, from specification development to delivery coordination.",
+    approach: "We maintain strategic partnerships with leading manufacturers and suppliers across Nigeria and internationally. Our procurement specialists conduct rigorous vendor evaluations, negotiate favorable terms, and implement quality assurance protocols to guarantee all procured items meet project specifications.",
+    industries: ['Heavy Machinery', 'Electrical Equipment', 'HVAC Systems', 'Industrial Tools', 'Safety Equipment', 'Spare Parts']
+  },
+  installation: {
+    overview: "Our installation services combine technical expertise with project management excellence to deliver seamless equipment commissioning and system integration. Our certified technicians ensure installations meet manufacturer specifications.",
+    approach: "We follow structured installation methodologies that prioritize safety, quality, and efficiency. Our teams conduct pre-installation planning, coordinate with other trades, and perform comprehensive testing and commissioning to ensure optimal system performance from day one.",
+    industries: ['Industrial Equipment', 'Power Systems', 'HVAC Installation', 'Control Systems', 'Safety Systems', 'Process Equipment']
+  },
+  maintenance: {
+    overview: "Our maintenance and support services maximize equipment uptime and extend operational life through proactive maintenance strategies. We offer comprehensive maintenance programs tailored to specific equipment types and operational requirements.",
+    approach: "We implement condition-based maintenance strategies using advanced diagnostic tools and predictive analytics. Our maintenance programs include regular inspections, preventive maintenance schedules, emergency response protocols, and comprehensive documentation.",
+    industries: ['Manufacturing Plants', 'Power Facilities', 'Commercial Buildings', 'Industrial Equipment', 'HVAC Systems', 'Process Control']
+  }
+};
+
 interface ServicePageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 export async function generateStaticParams() {
@@ -19,7 +49,8 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: ServicePageProps) {
-  const service = services.find((s) => s.slug === params.slug);
+  const { slug } = await params;
+  const service = services.find((s) => s.slug === slug);
   
   if (!service) {
     return createMetadata({
@@ -31,23 +62,19 @@ export async function generateMetadata({ params }: ServicePageProps) {
   return createMetadata({
     title: service.title,
     description: service.description,
-    url: `https://cnenginesystems.com/services/${service.slug}`
+    url: `https://cnenginesystems.com/services/${slug}`
   });
 }
 
-export default function ServicePage({ params }: ServicePageProps) {
-  const service = services.find((s) => s.slug === params.slug);
+export default async function ServicePage({ params }: ServicePageProps) {
+  const { slug } = await params;
+  const service = services.find((s) => s.slug === slug);
 
   if (!service) {
     notFound();
   }
 
-  const serviceImages = {
-    engineering: images.services.engineering,
-    procurement: images.services.procurement,
-    installation: images.services.installation,
-    maintenance: images.services.maintenance
-  };
+  const content = serviceContent[service.slug as keyof typeof serviceContent];
 
   return (
     <div className="bg-white">
@@ -79,10 +106,7 @@ export default function ServicePage({ params }: ServicePageProps) {
             <div>
               <h2 className="text-3xl font-bold text-primary-500 mb-6">Service Overview</h2>
               <p className="text-lg text-gray-600 leading-relaxed mb-8">
-                {service.slug === 'engineering' && "Our engineering services encompass the complete spectrum of technical design and consultation for industrial and commercial projects. From initial concept development to detailed engineering drawings, we provide comprehensive solutions that meet international standards and local regulations."}
-                {service.slug === 'procurement' && "Our procurement services leverage extensive supplier networks and industry expertise to source high-quality equipment and materials at competitive prices. We manage the entire procurement lifecycle, from specification development to delivery coordination."}
-                {service.slug === 'installation' && "Our installation services combine technical expertise with project management excellence to deliver seamless equipment commissioning and system integration. Our certified technicians ensure installations meet manufacturer specifications."}
-                {service.slug === 'maintenance' && "Our maintenance and support services maximize equipment uptime and extend operational life through proactive maintenance strategies. We offer comprehensive maintenance programs tailored to specific equipment types and operational requirements."}
+                {content.overview}
               </p>
               <div className="space-y-4">
                 {service.features.map((feature, index) => (
@@ -99,10 +123,7 @@ export default function ServicePage({ params }: ServicePageProps) {
           <div className="bg-neutral-50 rounded-2xl p-8 mb-16">
             <h3 className="text-2xl font-bold text-primary-500 mb-6">Our Approach</h3>
             <p className="text-lg text-gray-600 leading-relaxed">
-              {service.slug === 'engineering' && "We employ a systematic approach to engineering design, beginning with thorough site assessments and feasibility studies. Our team of certified engineers utilizes cutting-edge CAD software and simulation tools to develop optimal solutions that balance performance, cost-effectiveness, and sustainability."}
-              {service.slug === 'procurement' && "We maintain strategic partnerships with leading manufacturers and suppliers across Nigeria and internationally. Our procurement specialists conduct rigorous vendor evaluations, negotiate favorable terms, and implement quality assurance protocols to guarantee all procured items meet project specifications."}
-              {service.slug === 'installation' && "We follow structured installation methodologies that prioritize safety, quality, and efficiency. Our teams conduct pre-installation planning, coordinate with other trades, and perform comprehensive testing and commissioning to ensure optimal system performance from day one."}
-              {service.slug === 'maintenance' && "We implement condition-based maintenance strategies using advanced diagnostic tools and predictive analytics. Our maintenance programs include regular inspections, preventive maintenance schedules, emergency response protocols, and comprehensive documentation."}
+              {content.approach}
             </p>
           </div>
 
@@ -110,22 +131,7 @@ export default function ServicePage({ params }: ServicePageProps) {
           <div>
             <h3 className="text-2xl font-bold text-primary-500 mb-6">Industries We Serve</h3>
             <div className="grid md:grid-cols-3 gap-4">
-              {service.slug === 'engineering' && ['Manufacturing', 'Oil & Gas', 'Power Generation', 'Water Treatment', 'Commercial Buildings', 'Industrial Facilities'].map((industry, index) => (
-                <div key={index} className="bg-white border border-gray-200 rounded-lg p-4 text-center hover:border-accent-500 transition-colors">
-                  <span className="font-medium text-gray-700">{industry}</span>
-                </div>
-              ))}
-              {service.slug === 'procurement' && ['Heavy Machinery', 'Electrical Equipment', 'HVAC Systems', 'Industrial Tools', 'Safety Equipment', 'Spare Parts'].map((industry, index) => (
-                <div key={index} className="bg-white border border-gray-200 rounded-lg p-4 text-center hover:border-accent-500 transition-colors">
-                  <span className="font-medium text-gray-700">{industry}</span>
-                </div>
-              ))}
-              {service.slug === 'installation' && ['Industrial Equipment', 'Power Systems', 'HVAC Installation', 'Control Systems', 'Safety Systems', 'Process Equipment'].map((industry, index) => (
-                <div key={index} className="bg-white border border-gray-200 rounded-lg p-4 text-center hover:border-accent-500 transition-colors">
-                  <span className="font-medium text-gray-700">{industry}</span>
-                </div>
-              ))}
-              {service.slug === 'maintenance' && ['Manufacturing Plants', 'Power Facilities', 'Commercial Buildings', 'Industrial Equipment', 'HVAC Systems', 'Process Control'].map((industry, index) => (
+              {content.industries.map((industry, index) => (
                 <div key={index} className="bg-white border border-gray-200 rounded-lg p-4 text-center hover:border-accent-500 transition-colors">
                   <span className="font-medium text-gray-700">{industry}</span>
                 </div>

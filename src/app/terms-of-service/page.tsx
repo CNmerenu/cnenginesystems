@@ -1,10 +1,14 @@
 import { generateMetadata as createMetadata } from "@/lib/metadata";
 
+const effectiveDate = "December 15, 2024";
+const lastUpdated = "October 21, 2025";
+
 export const metadata = createMetadata({
   title: "Terms of Service",
-  description: "Terms of Service for CN Engine Systems Ltd - Legal terms and conditions governing the use of our engineering, procurement, installation, and maintenance services.",
+  description:
+    "Terms of Service for CN Engine Systems Ltd - Legal terms and conditions governing the use of our engineering, procurement, installation, and maintenance services.",
   url: "https://cnenginesystems.com/terms-of-service",
-  noindex: true
+  noindex: true,
 });
 
 export default function TermsOfServicePage() {
@@ -22,8 +26,8 @@ export default function TermsOfServicePage() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="prose prose-lg max-w-none">
             <p className="text-gray-600 mb-8 text-sm">
-              <strong>Effective Date:</strong> {new Date().toLocaleDateString()}{" "}
-              | <strong>Last Updated:</strong> {new Date().toLocaleDateString()}
+              <strong>Effective Date:</strong> {effectiveDate} |{" "}
+              <strong>Last Updated:</strong> {lastUpdated}
             </p>
 
             <div className="bg-accent-500/10 border-l-4 border-accent-500 p-6 mb-8">
@@ -346,7 +350,7 @@ export default function TermsOfServicePage() {
                     projects@cnenginesystems.com
                   </a>
                 </p>
-                <p>Phone:+234 913 8802 2206</p>
+                <p>Phone: +234 913 8802 2206</p>
                 <p>Address: Lagos, Nigeria</p>
               </div>
             </div>

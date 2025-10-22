@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import { CheckCircle, XCircle, X } from "lucide-react";
 
 export default function ContactPage() {
@@ -14,48 +14,71 @@ export default function ContactPage() {
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [modal, setModal] = useState<{ show: boolean; type: 'success' | 'error'; message: string }>({ show: false, type: 'success', message: '' });
+  const [modal, setModal] = useState<{
+    show: boolean;
+    type: "success" | "error";
+    message: string;
+  }>({ show: false, type: "success", message: "" });
+
+  const resetForm = () => {
+    setFormData({
+      name: "",
+      email: "",
+      phone: "",
+      company: "",
+      service: "",
+      message: "",
+    });
+  };
+
+  const showModal = (type: "success" | "error", message: string) => {
+    setModal({ show: true, type, message });
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     try {
-      const response = await fetch('/api/proposal-request', {
-        method: 'POST',
+      const response = await fetch("/api/proposal-request", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(formData),
       });
-      
+
       if (response.ok) {
-        setModal({ show: true, type: 'success', message: 'Thank you for your inquiry! We\'ll get back to you within 24 hours.' });
-        setFormData({
-          name: "",
-          email: "",
-          phone: "",
-          company: "",
-          service: "",
-          message: "",
-        });
+        showModal(
+          "success",
+          "Thank you for your inquiry! We'll get back to you within 24 hours."
+        );
+        resetForm();
       } else {
-        throw new Error('Failed to send message');
+        throw new Error("Failed to send message");
       }
     } catch (error) {
-      setModal({ show: true, type: 'error', message: 'Sorry, there was an error sending your message. Please try again.' });
+      console.error("Error submitting form:", error);
+      showModal(
+        "error",
+        "Sorry, there was an error sending your message. Please try again."
+      );
     } finally {
       setIsSubmitting(false);
     }
   };
 
-  const handleChange = (
-    e: React.ChangeEvent<
-      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >
-  ) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
+  const handleChange = useCallback(
+    (
+      e: React.ChangeEvent<
+        HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+      >
+    ) => {
+      const { name, value } = e.target;
+      setFormData((prev) => ({ ...prev, [name]: value }));
+    },
+    []
+  );
 
   return (
     <div className="bg-white">
@@ -70,7 +93,7 @@ export default function ContactPage() {
               <X className="w-5 h-5" />
             </button>
             <div className="flex items-center mb-4">
-              {modal.type === 'success' ? (
+              {modal.type === "success" ? (
                 <CheckCircle className="w-8 h-8 text-green-500 mr-3" />
               ) : (
                 <XCircle className="w-8 h-8 text-red-500 mr-3" />
@@ -80,7 +103,9 @@ export default function ContactPage() {
                   CN Engine Systems
                 </h3>
                 <p className="text-sm text-gray-600">
-                  {modal.type === 'success' ? 'Message Sent Successfully' : 'Message Failed'}
+                  {modal.type === "success"
+                    ? "Message Sent Successfully"
+                    : "Message Failed"}
                 </p>
               </div>
             </div>
@@ -223,7 +248,7 @@ export default function ContactPage() {
                   disabled={isSubmitting}
                   className="w-full bg-accent-500 text-white px-8 py-3 rounded-md hover:bg-accent-600 transition-colors font-semibold disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  {isSubmitting ? 'Sending...' : 'Send Message'}
+                  {isSubmitting ? "Sending..." : "Send Message"}
                 </button>
               </form>
             </div>

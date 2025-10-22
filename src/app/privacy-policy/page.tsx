@@ -1,11 +1,15 @@
 import Link from "next/link";
 import { generateMetadata as createMetadata } from "@/lib/metadata";
 
+const effectiveDate = "December 15, 2024";
+const lastUpdated = "October 21, 2025";
+
 export const metadata = createMetadata({
   title: "Privacy Policy",
-  description: "Privacy policy for CN Engine Systems Ltd - How we collect, use, and protect your personal information in compliance with Nigerian Data Protection Regulation (NDPR) 2019.",
+  description:
+    "Privacy policy for CN Engine Systems Ltd - How we collect, use, and protect your personal information in compliance with Nigerian Data Protection Regulation (NDPR) 2019.",
   url: "https://cnenginesystems.com/privacy-policy",
-  noindex: true
+  noindex: true,
 });
 
 export default function PrivacyPolicyPage() {
@@ -23,8 +27,8 @@ export default function PrivacyPolicyPage() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="prose prose-lg max-w-none">
             <p className="text-gray-600 mb-8 text-sm">
-              <strong>Effective Date:</strong> {new Date().toLocaleDateString()}{" "}
-              | <strong>Last Updated:</strong> {new Date().toLocaleDateString()}
+              <strong>Effective Date:</strong> {effectiveDate} |{" "}
+              <strong>Last Updated:</strong> {lastUpdated}
             </p>
 
             <div className="bg-accent-500/10 border-l-4 border-accent-500 p-6 mb-8">
