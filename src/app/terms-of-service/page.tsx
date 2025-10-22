@@ -37,13 +37,12 @@ export default function TermsOfServicePage() {
             </h2>
             <p className="text-gray-600 mb-6">
               By accessing our website, requesting quotations, or engaging CN
-              Engine Systems Ltd (RC: [Registration Number])
-              (&quot;Company,&quot; &quot;we,&quot; &quot;our,&quot; or
-              &quot;us&quot;) for services, you (&quot;Client,&quot;
-              &quot;you,&quot; or &quot;your&quot;) agree to be bound by these
-              Terms of Service and all applicable laws of the Federal Republic
-              of Nigeria. If you do not agree to these terms, you must not use
-              our services.
+              Engine Systems Ltd (RC 1759862) (&quot;Company,&quot;
+              &quot;we,&quot; &quot;our,&quot; or &quot;us&quot;) for services,
+              you (&quot;Client,&quot; &quot;you,&quot; or &quot;your&quot;)
+              agree to be bound by these Terms of Service and all applicable
+              laws of the Federal Republic of Nigeria. If you do not agree to
+              these terms, you must not use our services.
             </p>
 
             <h2 className="text-2xl font-bold text-primary-500 mb-4 mt-8">

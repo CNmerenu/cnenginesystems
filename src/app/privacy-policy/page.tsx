@@ -37,15 +37,14 @@ export default function PrivacyPolicyPage() {
               1. Introduction
             </h2>
             <p className="text-gray-600 mb-6">
-              CN Engine Systems Ltd (RC: [Registration Number])
-              (&quot;Company,&quot; &quot;we,&quot; &quot;our,&quot; or
-              &quot;us&quot;), a company incorporated under the laws of the
-              Federal Republic of Nigeria with its registered office at Lagos,
-              Nigeria, is committed to protecting your privacy and personal
-              data. This Privacy Policy explains how we collect, use, process,
-              store, and protect your personal information in compliance with
-              the Nigeria Data Protection Regulation (NDPR) 2019 and other
-              applicable laws.
+              CN Engine Systems Ltd (RC 1759862) (&quot;Company,&quot;
+              &quot;we,&quot; &quot;our,&quot; or &quot;us&quot;), a company
+              incorporated under the laws of the Federal Republic of Nigeria
+              with its registered office at Lagos, Nigeria, is committed to
+              protecting your privacy and personal data. This Privacy Policy
+              explains how we collect, use, process, store, and protect your
+              personal information in compliance with the Nigeria Data
+              Protection Regulation (NDPR) 2019 and other applicable laws.
             </p>
 
             <h2 className="text-2xl font-bold text-primary-500 mb-4 mt-8">

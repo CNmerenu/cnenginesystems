@@ -20,7 +20,7 @@ export default function Header() {
           <Link href="/" className="flex items-center space-x-3 group">
             <div className="relative transition-transform group-hover:scale-105">
               <Image
-                src="/assets/logo-light.svg"
+                src="/assets/logo.svg"
                 alt="CN Engine Systems Logo"
                 width={200}
                 height={148}

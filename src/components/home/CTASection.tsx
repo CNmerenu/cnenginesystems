@@ -37,8 +37,7 @@ export default function CTASection() {
 
           <p className="text-xl md:text-2xl mb-10 text-white/90 max-w-3xl mx-auto leading-relaxed">
             Get in touch with our expert team today for a free consultation and
-            detailed quote. Let's bring your engineering vision to life with
-            precision and excellence.
+            detailed quote.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center animate-slide-up">
