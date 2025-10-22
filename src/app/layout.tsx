@@ -1,28 +1,30 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
+import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
+import ScrollToTop from "@/components/ui/ScrollToTop";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const inter = Inter({
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "The SME CFO - Enterprise Financial Services for African SMEs",
+  metadataBase: new URL('https://cnenginesystems.com'),
+  title:
+    "CN Engine Systems Ltd - Engineering Excellence in Nigeria | Procurement, Installation & Maintenance",
   description:
-    "Professional CFO services for Small and Medium Enterprises across Africa. Get financial statements, performance reporting, tax preparation, and expert financial guidance.",
+    "Leading engineering services company in Nigeria providing comprehensive solutions in engineering design, equipment procurement, professional installation, and maintenance services for industrial and commercial projects.",
   keywords:
-    "CFO services, SME finance, African business, financial statements, tax preparation, Nigeria, financial consulting",
-  authors: [{ name: "The SME CFO" }],
+    "engineering services Nigeria, equipment procurement, installation services, maintenance contracts, industrial engineering, commercial engineering, HVAC systems, power systems, vending machines, construction services, Nigerian engineering company",
+  authors: [{ name: "CN Engine Systems Ltd" }],
   openGraph: {
-    title: "The SME CFO - Enterprise Financial Services",
-    description: "Professional CFO services for African SMEs",
+    title: "CN Engine Systems Ltd - Engineering Excellence in Nigeria",
+    description:
+      "Comprehensive engineering, procurement, installation, and maintenance services for industrial and commercial projects across Nigeria.",
     type: "website",
+    locale: "en_NG",
   },
   icons: {
     icon: "/assets/favicon.svg",
@@ -36,10 +38,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+      <body className={`${inter.className} antialiased`}>
+        <Header />
+        <main className="min-h-screen pt-20">{children}</main>
+        <Footer />
+        <ScrollToTop />
       </body>
     </html>
   );
