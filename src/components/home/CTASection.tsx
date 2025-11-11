@@ -59,20 +59,20 @@ export default function CTASection() {
           </div>
 
           {/* Trust Indicators */}
-          <div className="mt-16 grid grid-cols-2 md:grid-cols-3 gap-8 opacity-80 animate-fade-in">
+          {/* <div className="mt-16 grid grid-cols-2 md:grid-cols-3 gap-8 opacity-80 animate-fade-in">
             <div className="text-center">
-              <div className="text-2xl font-bold">50+</div>
+              <div className="text-2xl font-bold">10+</div>
               <div className="text-sm text-white/70">Projects Delivered</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl font-bold">10+</div>
+              <div className="text-2xl font-bold">4+</div>
               <div className="text-sm text-white/70">Years Experience</div>
             </div>
             <div className="text-center">
               <div className="text-2xl font-bold">100%</div>
               <div className="text-sm text-white/70">Client Satisfaction</div>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>

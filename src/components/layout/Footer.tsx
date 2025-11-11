@@ -101,8 +101,7 @@ export default function Footer() {
         <div className="border-t border-lightAccent-500/20 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-subtleAccent-500 text-sm">
-              &copy; 2021 - {currentYear} CN Engine Systems Ltd. All rights
-              reserved.
+              &copy; {currentYear} CN Engine Systems Ltd. All rights reserved.
             </p>
             <div className="flex space-x-6 text-sm">
               <Link

@@ -34,8 +34,8 @@ export default function Hero() {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="space-y-8 animate-fade-in">
             <div className="space-y-6">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-shadow-lg">
-                Engineering Excellence in Nigeria
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-shadow-lg capitalize">
+                Engineering Support Services
               </h1>
               <p className="text-xl text-subtleAccent-500 leading-relaxed">
                 Comprehensive engineering, procurement, installation, and

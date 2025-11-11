@@ -47,7 +47,7 @@ export default function AboutPreview() {
                 About Our Company
               </div>
               <h2 className="text-4xl md:text-5xl font-bold text-primary-500 mb-6 text-shadow">
-                Engineering Excellence Since 2021
+                Engineering Excellence
               </h2>
               <div className="space-y-4 text-lg text-gray-600 leading-relaxed">
                 <p>

@@ -2,7 +2,15 @@ import Link from "next/link";
 import Image from "next/image";
 import { services } from "@/lib/data/services";
 import { images } from "@/lib/data/images";
-import { Wrench, Package, Settings, ArrowRight, Drill } from "lucide-react";
+import {
+  Wrench,
+  Package,
+  Settings,
+  ArrowRight,
+  Drill,
+  HeartHandshake,
+  FolderKanban,
+} from "lucide-react";
 
 export default function Services() {
   const serviceIcons = {
@@ -10,6 +18,8 @@ export default function Services() {
     "2": <Package className="w-12 h-12" />,
     "3": <Settings className="w-12 h-12" />,
     "4": <Drill className="w-12 h-12" />,
+    "5": <HeartHandshake className="w-12 h-12" />,
+    "6": <FolderKanban className="w-12 h-12" />,
   };
 
   return (
@@ -48,7 +58,7 @@ export default function Services() {
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {services.map((service, index) => (
             <Link
               key={service.id}
