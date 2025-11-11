@@ -7,10 +7,6 @@ export const images = {
   },
   services: {
     background: "/images/bg-services.jpg",
-    engineering: "/images/engineering-services.jpg",
-    procurement: "/images/logistics.jpg",
-    installation: "/images/installation.jpg",
-    maintenance: "/images/electrician.jpg",
   },
   cta: {
     background: "/images/installation.jpg",

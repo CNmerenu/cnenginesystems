@@ -27,55 +27,46 @@ export default function ServicesPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-8">
             {(() => {
-              const serviceImages = [
-                images.services.engineering,
-                images.services.procurement,
-                images.services.installation,
-                images.services.maintenance,
-              ];
-              
               return services.map((service, index) => {
-
-              return (
-                <Link
-                  key={service.id}
-                  href={`/services/${service.slug}`}
-                  className="group"
-                >
-                  <div className="bg-white border-2 border-gray-200 rounded-2xl overflow-hidden hover:border-accent-500 hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-500 h-full">
-                    <Image
-                      // amazonq-ignore-next-line
-                      src={serviceImages[index]}
-                      alt={service.title}
-                      width={800}
-                      height={240}
-                      className="w-full h-60 object-cover"
-                    />
-                    <div className="p-8">
-                      <h2 className="text-2xl font-bold text-primary-500 mb-4 group-hover:text-accent-500 transition-colors">
-                        {service.title}
-                      </h2>
-                      <p className="text-gray-600 mb-6 leading-relaxed">
-                        {service.description}
-                      </p>
-                      <div className="space-y-2">
-                        {service.features.slice(0, 3).map((feature, idx) => (
-                          <div
-                            key={idx}
-                            className="flex items-center text-sm text-gray-500"
-                          >
-                            <div className="w-1.5 h-1.5 bg-accent-500 rounded-full mr-2 flex-shrink-0"></div>
-                            {feature}
-                          </div>
-                        ))}
+                return (
+                  <Link
+                    key={service.id}
+                    href={`/services/${service.slug}`}
+                    className="group"
+                  >
+                    <div className="bg-white border-2 border-gray-200 rounded-2xl overflow-hidden hover:border-accent-500 hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-500 h-full">
+                      <Image
+                        // amazonq-ignore-next-line
+                        src={service.content.image}
+                        alt={service.title}
+                        width={800}
+                        height={240}
+                        className="w-full h-60 object-cover"
+                      />
+                      <div className="p-8">
+                        <h2 className="text-2xl font-bold text-primary-500 mb-4 group-hover:text-accent-500 transition-colors">
+                          {service.title}
+                        </h2>
+                        <p className="text-gray-600 mb-6 leading-relaxed">
+                          {service.description}
+                        </p>
+                        <div className="space-y-2">
+                          {service.features.slice(0, 3).map((feature, idx) => (
+                            <div
+                              key={idx}
+                              className="flex items-center text-sm text-gray-500"
+                            >
+                              <div className="w-1.5 h-1.5 bg-accent-500 rounded-full mr-2 flex-shrink-0"></div>
+                              {feature}
+                            </div>
+                          ))}
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </Link>
-              );
-            });
-            })()
-            }
+                  </Link>
+                );
+              });
+            })()}
           </div>
         </div>
       </section>

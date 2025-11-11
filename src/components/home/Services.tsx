@@ -2,16 +2,9 @@ import Link from "next/link";
 import Image from "next/image";
 import { services } from "@/lib/data/services";
 import { images } from "@/lib/data/images";
-import { Wrench, Package, Settings, ArrowRight, Drill } from "lucide-react";
+import { Settings, ArrowRight } from "lucide-react";
 
 export default function Services() {
-  const serviceIcons = {
-    "1": <Wrench className="w-12 h-12" />,
-    "2": <Package className="w-12 h-12" />,
-    "3": <Settings className="w-12 h-12" />,
-    "4": <Drill className="w-12 h-12" />,
-  };
-
   return (
     <section className="section-padding bg-gradient-to-b from-neutral-50 to-white relative">
       {/* Background Image */}
@@ -48,7 +41,7 @@ export default function Services() {
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {services.map((service, index) => (
             <Link
               key={service.id}
@@ -60,7 +53,7 @@ export default function Services() {
                 {/* Icon */}
                 <div className="w-16 h-16 bg-gradient-to-br from-accent-500/20 to-accent-500/10 rounded-2xl flex items-center justify-center mb-6 group-hover:from-accent-500 group-hover:to-accent-600 transition-all duration-300">
                   <div className="text-accent-500 group-hover:text-white transition-colors">
-                    {serviceIcons[service.id as keyof typeof serviceIcons]}
+                    {<service.icon className="w-8 h-8" />}
                   </div>
                 </div>
 
