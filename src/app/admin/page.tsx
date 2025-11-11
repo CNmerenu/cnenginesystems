@@ -4,6 +4,7 @@ import { useState } from "react";
 import { FileText, Download, ArrowLeft, Edit } from "lucide-react";
 import jsPDF from "jspdf";
 import html2canvas from "html2canvas";
+import Image from "next/image";
 
 export default function AdminPage() {
   const [formData, setFormData] = useState({
@@ -144,27 +145,34 @@ export default function AdminPage() {
               style={{ fontFamily: "serif" }}
             >
               {/* Letterhead */}
-              <div className="text-center border-b-2 border-primary-500 pb-6 mb-8">
-                <div className="flex items-center justify-center mb-4">
-                  <img
-                    src="/assets/logo-dark.svg"
-                    alt="CN Engine Systems Logo"
-                    className="w-16 h-16 mr-4"
-                  />
-                  <div>
-                    <h1 className="text-3xl font-bold text-primary-500 mb-1">
-                      CN ENGINE SYSTEMS LTD
-                    </h1>
-                    <p className="text-gray-600 text-sm">
-                      Engineering Excellence in Nigeria
-                    </p>
+              <div className="w-full h-[180px] relative">
+                <div className="w-full h-full absolute top-0 z-10">
+                  {/* Logo - Top Left Corner */}
+                  <div className="absolute top-0 left-0">
+                    <Image
+                      src="/assets/logo-dark.svg"
+                      alt="CN Engine Systems Logo"
+                      width={126}
+                      height={96}
+                      style={{ objectFit: "contain" }}
+                    />
+                  </div>
+                  <div className="w-full h-full absolute top-0 z-30 border-b-2 border-primary-500">
+                    <div className="text-center">
+                      <h1 className="text-3xl font-bold text-primary-500 mb-2">
+                        CN ENGINE SYSTEMS LTD
+                      </h1>
+                      <p className="text-gray-600 text-lg mb-3">
+                        Engineering Support Services
+                      </p>
+                      <p className="text-gray-600 text-sm mb-1">
+                        RC: 1759862 | Email: projects@cnenginesystems.com |
+                        Phone: +234 913 8802 2206
+                      </p>
+                      <p className="text-gray-600 text-sm">Lagos, Nigeria</p>
+                    </div>
                   </div>
                 </div>
-                <p className="text-gray-600 text-sm">
-                  RC: 1759862 | Email: projects@cnenginesystems.com | Phone:
-                  +234 913 8802 2206
-                </p>
-                <p className="text-gray-600 text-sm">Lagos, Nigeria</p>
               </div>
 
               {/* Date and Reference */}
