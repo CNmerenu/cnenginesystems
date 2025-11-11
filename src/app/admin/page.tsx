@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { FileText, Download, ArrowLeft, Edit } from "lucide-react";
+import { FileText, Download, Edit } from "lucide-react";
 import jsPDF from "jspdf";
 import html2canvas from "html2canvas";
 import Image from "next/image";
