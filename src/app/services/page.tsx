@@ -1,7 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import { services } from "@/lib/data/services";
-import { images } from "@/lib/data/images";
 import { generateMetadata as createMetadata } from "@/lib/metadata";
 
 export const metadata = createMetadata({
@@ -27,7 +26,7 @@ export default function ServicesPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-8">
             {(() => {
-              return services.map((service, index) => {
+              return services.map((service) => {
                 return (
                   <Link
                     key={service.id}
